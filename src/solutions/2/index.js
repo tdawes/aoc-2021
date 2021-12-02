@@ -28,7 +28,7 @@ const part1 = async () => {
   return position[0] * position[1];
 };
 
-const part2 = () => {
+const part2 = async () => {
   const input = await readInput();
   const instructions = parse(input);
   const position = [0, 0];
@@ -45,7 +45,5 @@ const part2 = () => {
   }
   return position[0] * position[1];
 };
-
-const instructions = parse(input);
 
 part1().then(console.log).then(part2).then(console.log);
