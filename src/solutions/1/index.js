@@ -7,14 +7,14 @@ const readFile = promisify(fs.readFile);
 const readInput = async () => readFile(path.join(__dirname, "input"), "utf-8");
 
 const parse = (input) => {
-  const depths = input.split("\n").map(x => parseInt(x, 10));
+  const depths = input.split("\n").map((x) => parseInt(x, 10));
   return depths;
 };
 
 // Part 1
 const part1 = async () => {
   const input = await readInput();
-const depths = parse(input);
+  const depths = parse(input);
   const [head, ...tail] = depths;
   let previous = head;
   let count = 0;
