@@ -32,7 +32,7 @@ const parse = (input) => {
   return caves;
 };
 
-const visit = (caves, path, visited = new Set(), hasVisitedSmall = true) => {
+const visit = (caves, path, hasVisitedSmall = true, visited = new Set()) => {
   const current = path[path.length - 1];
   if (current === "end") {
     return [path];
@@ -48,8 +48,8 @@ const visit = (caves, path, visited = new Set(), hasVisitedSmall = true) => {
       ...visit(
         caves,
         [...path, to],
-        nextVisited,
         hasVisitedSmall || (!caves[to].isLarge && nextVisited.has(to)),
+        nextVisited,
       ),
     );
   }
@@ -66,7 +66,7 @@ const part1 = async () => {
 const part2 = async () => {
   const input = await readInput();
   const caves = parse(input);
-  const paths = visit(caves, ["start"], new Set(), false);
+  const paths = visit(caves, ["start"], false);
   return paths.length;
 };
 
