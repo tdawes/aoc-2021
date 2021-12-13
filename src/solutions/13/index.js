@@ -96,12 +96,8 @@ const part2 = async () => {
     grid = applyFold(grid, fold);
   }
 
-  return _.range(0, grid[0].length)
-    .map((y) =>
-      _.range(0, grid.length)
-        .map((x) => (grid[x][y] ? "#" : " "))
-        .join(""),
-    )
+  return transpose(grid)
+    .map((row) => row.map((c) => (c ? "#" : " ")).join(""))
     .join("\n");
 };
 
