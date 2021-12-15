@@ -2,9 +2,6 @@ const fs = require("fs");
 const { promisify } = require("util");
 const path = require("path");
 const _ = require("lodash");
-const { toLower, result } = require("lodash");
-const { assert, Console } = require("console");
-``;
 
 const readFile = promisify(fs.readFile);
 
@@ -41,18 +38,6 @@ const parse = (input) => {
   }
 
   return { grid, folds };
-};
-
-const horizontalFold = (grid, position) => {
-  const newGrid = _.range(0, grid.length).map((x) =>
-    _.range(0, position).map((y) => grid[x][y]),
-  );
-  for (let i = 0; i < grid.length; i++) {
-    for (let j = 1; j <= position; j++) {
-      newGrid[i][position - j] = grid[i][position - j] || grid[i][position + j];
-    }
-  }
-  return newGrid;
 };
 
 const transpose = (grid) =>

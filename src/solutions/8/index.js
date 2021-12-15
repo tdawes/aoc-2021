@@ -2,7 +2,6 @@ const fs = require("fs");
 const { promisify } = require("util");
 const path = require("path");
 const _ = require("lodash");
-const { toLower } = require("lodash");
 
 const readFile = promisify(fs.readFile);
 

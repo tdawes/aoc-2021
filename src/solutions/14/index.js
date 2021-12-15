@@ -2,10 +2,6 @@ const fs = require("fs");
 const { promisify } = require("util");
 const path = require("path");
 const _ = require("lodash");
-const { toLower, result } = require("lodash");
-const { assert, Console } = require("console");
-const { setFlagsFromString } = require("v8");
-``;
 
 const readFile = promisify(fs.readFile);
 
