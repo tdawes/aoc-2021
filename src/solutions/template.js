@@ -8,14 +8,20 @@ const readInput = async () => readFile(path.join(__dirname, "input"), "utf-8");
 
 const parse = (input) => input;
 
-const part1 = async () => {
+const run = async () => {
   const input = await readInput();
   const parsed = parse(input);
+
+  return parsed;
 };
 
-const part2 = async () => {
-  const input = await readInput();
-  const parsed = parse(input);
-};
+const part1 = async (input) => {};
 
-part1().then(console.log).then(part2).then(console.log);
+const part2 = async (input) => {};
+
+run().then((result) =>
+  part1(result)
+    .then(console.log)
+    .then(() => part2(result))
+    .then(console.log),
+);
