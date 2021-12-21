@@ -37,15 +37,11 @@ const part1 = async (initialPositions) => {
   return _.min(scores) * diceCount;
 };
 
-const diceRolls = {
-  3: 1,
-  4: 3,
-  5: 6,
-  6: 7,
-  7: 6,
-  8: 3,
-  9: 1,
-};
+const diceRolls = _.countBy(
+  _.range(1, 4).flatMap((d1) =>
+    _.range(1, 4).flatMap((d2) => _.range(1, 4).map((d3) => d1 + d2 + d3)),
+  ),
+);
 
 const cache = {};
 const key = (positions, scores, turn) =>
